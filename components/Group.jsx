@@ -11,7 +11,7 @@ const Group = ({ user, diagnosis, time, active }) => {
           <FullName>{user.fullname}</FullName>
           <GrayText>{diagnosis}</GrayText>
         </View>
-        <GroupTime active={active}>{time}</GroupTime>
+        <GroupTime active={active ? 1 : 0}>{time}</GroupTime>
       </GroupItem>
     </GroupBlock>
   );
