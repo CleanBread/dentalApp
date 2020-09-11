@@ -110,23 +110,23 @@ const HomeScreen = ({ navigation }) => {
       ]
     }
   ];
-    return (
-        <Container>
-          <GroupList
-            sections={DATA}
-            keyExtractor={(item, index) => index}
-            renderItem={({ item }) => <Group {...item} />}
-            renderSectionHeader={({ section: { title } }) => {
-              return <GroupTitle title={title}></GroupTitle>
-            }}
-          />
-          <TouchableOpacity onPress={() => navigation.navigate('Patient')}>
-            <PlusButton>
-              <Ionicons size={32} name="ios-add" color="white" />
-            </PlusButton>
-          </TouchableOpacity>
-        </Container>
-    );
+  return (
+    <Container>
+      <GroupList
+        sections={DATA}
+        keyExtractor={(item, index) => index}
+        renderItem={({ item }) => <Group navigation={navigation} {...item} />}
+        renderSectionHeader={({ section: { title } }) => {
+          return <GroupTitle title={title}></GroupTitle>
+        }}
+      />
+      <TouchableOpacity>
+        <PlusButton>
+          <Ionicons size={32} name="ios-add" color="white" />
+        </PlusButton>
+      </TouchableOpacity>
+    </Container>
+  );
 }
 
 
@@ -137,7 +137,7 @@ const GroupList = styled.SectionList`
 const PlusButton = styled.View`
   background: #2A86FF;
   box-shadow: 0px 0px 17px rgba(42, 134, 255, 0.5);
-  border-radius: 50%;
+  border-radius: 50;
   width: 64px;
   height: 64px;
   position: absolute;
@@ -149,6 +149,7 @@ const PlusButton = styled.View`
 
 const Container = styled.View`
   flex: 1;
+  background: #ffffff;
 `;
 
 export default HomeScreen;
