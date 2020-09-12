@@ -19,7 +19,7 @@ const myTheme = {
 function App() {
   return (
     <NavigationContainer theme={myTheme} >
-      <Stack.Navigator initialRouteName="Patient">
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} options={{
           title: 'Пациенты', headerTintColor: '#2A86FF', headerTitleStyle: {
             fontWeight: 'bold',

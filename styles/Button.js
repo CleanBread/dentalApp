@@ -6,4 +6,5 @@ export default styled.TouchableOpacity`
     width: ${props => props.width};
     height: ${props => props.height};
     borderRadius: 40;
+    flex: 1;
 `

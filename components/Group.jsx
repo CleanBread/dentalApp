@@ -4,10 +4,11 @@ import styled from 'styled-components/native';
 
 import { GrayText } from '../styles';
 
-const Group = ({ user, diagnosis, time, active, navigation }) => {
+const Group = ({ patient, navigation }) => {
+  const { user, diagnosis, time, active } = patient
   return (
     <GroupBlock>
-      <GroupItem onPress={() => navigation.navigate('Patient')}>
+      <GroupItem onPress={() => navigation.navigate('Patient', patient)}>
         <Avatar source={{ uri: user.avatar }} />
         <View>
           <FullName>{user.fullname}</FullName>
@@ -31,7 +32,6 @@ const GroupTime = styled.View`
   align-items: center;
   padding: 8px 0;
   width: 70px;
-  text-align: center;
   margin-left: auto;
 `
 
@@ -40,6 +40,7 @@ const GroupTimeText = styled.Text`
   font-size: 14px;
   line-height: 17px;
   font-weight: 700;
+  text-align: center;
 `
 
 

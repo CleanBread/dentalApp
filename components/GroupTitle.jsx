@@ -12,7 +12,7 @@ const GroupTitleItem = styled.Text`
   line-height: 30px;
   color: #000;
   font-weight: 700;
-  padding: 0 20px;
+  padding: 10px 20px 0;
   background: #ffffff;
 `;
 

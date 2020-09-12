@@ -17,6 +17,7 @@ const HomeScreen = ({ navigation }) => {
           diagnosis: 'пульпит',
           user: {
             fullname: 'Вася Пупкин',
+            tel: '+7 (999) 200-66-55',
             avatar:
               'https://sun9-72.userapi.com/c841230/v841230790/16d12/GlMuOg_6qdo.jpg?ava=1'
           }
@@ -26,6 +27,7 @@ const HomeScreen = ({ navigation }) => {
           diagnosis: 'удаление зуба',
           user: {
             fullname: 'Иван Иванов',
+            tel: '+7 (999) 200-66-55',
             avatar:
               'https://sun9-67.userapi.com/c846017/v846017841/18957c/1iVH9FKXi4E.jpg?ava=1'
           }
@@ -35,6 +37,7 @@ const HomeScreen = ({ navigation }) => {
           diagnosis: 'пульпит',
           user: {
             fullname: 'Вася Пупкин',
+            tel: '+7 (999) 200-66-55',
             avatar:
               'https://sun9-72.userapi.com/c841230/v841230790/16d12/GlMuOg_6qdo.jpg?ava=1'
           }
@@ -44,6 +47,7 @@ const HomeScreen = ({ navigation }) => {
           diagnosis: 'удаление зуба',
           user: {
             fullname: 'Иван Иванов',
+            tel: '+7 (999) 200-66-55',
             avatar:
               'https://sun9-67.userapi.com/c846017/v846017841/18957c/1iVH9FKXi4E.jpg?ava=1'
           }
@@ -58,6 +62,7 @@ const HomeScreen = ({ navigation }) => {
           diagnosis: 'пульпит',
           user: {
             fullname: 'Вася Пупкин',
+            tel: '+7 (999) 200-66-55',
             avatar:
               'https://sun9-72.userapi.com/c841230/v841230790/16d12/GlMuOg_6qdo.jpg?ava=1'
           }
@@ -67,6 +72,7 @@ const HomeScreen = ({ navigation }) => {
           diagnosis: 'удаление зуба',
           user: {
             fullname: 'Иван Иванов',
+            tel: '+7 (999) 200-66-55',
             avatar:
               'https://sun9-67.userapi.com/c846017/v846017841/18957c/1iVH9FKXi4E.jpg?ava=1'
           }
@@ -76,6 +82,7 @@ const HomeScreen = ({ navigation }) => {
           diagnosis: 'пульпит',
           user: {
             fullname: 'Вася Пупкин',
+            tel: '+7 (999) 200-66-55',
             avatar:
               'https://sun9-72.userapi.com/c841230/v841230790/16d12/GlMuOg_6qdo.jpg?ava=1'
           }
@@ -85,6 +92,7 @@ const HomeScreen = ({ navigation }) => {
           diagnosis: 'удаление зуба',
           user: {
             fullname: 'Иван Иванов',
+            tel: '+7 (999) 200-66-55',
             avatar:
               'https://sun9-67.userapi.com/c846017/v846017841/18957c/1iVH9FKXi4E.jpg?ava=1'
           }
@@ -94,6 +102,7 @@ const HomeScreen = ({ navigation }) => {
           diagnosis: 'пульпит',
           user: {
             fullname: 'Вася Пупкин',
+            tel: '+7 (999) 200-66-55',
             avatar:
               'https://sun9-72.userapi.com/c841230/v841230790/16d12/GlMuOg_6qdo.jpg?ava=1'
           }
@@ -103,6 +112,7 @@ const HomeScreen = ({ navigation }) => {
           diagnosis: 'удаление зуба',
           user: {
             fullname: 'Иван Иванов',
+            tel: '+7 (999) 200-66-55',
             avatar:
               'https://sun9-67.userapi.com/c846017/v846017841/18957c/1iVH9FKXi4E.jpg?ava=1'
           }
@@ -113,9 +123,10 @@ const HomeScreen = ({ navigation }) => {
   return (
     <Container>
       <GroupList
+        contentInset={{ bottom: 100 }}
         sections={DATA}
         keyExtractor={(item, index) => index}
-        renderItem={({ item }) => <Group navigation={navigation} {...item} />}
+        renderItem={({ item }) => <Group navigation={navigation} patient={item} />}
         renderSectionHeader={({ section: { title } }) => {
           return <GroupTitle title={title}></GroupTitle>
         }}
@@ -131,7 +142,7 @@ const HomeScreen = ({ navigation }) => {
 
 
 const GroupList = styled.SectionList`
-  padding-bottom: 100px;
+  padding-bottom: 100;
 `
 
 const PlusButton = styled.View`
