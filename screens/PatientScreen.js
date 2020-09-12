@@ -4,9 +4,14 @@ import styled from 'styled-components/native';
 import { Ionicons } from '@expo/vector-icons';
 
 import { GrayText, Button } from '../styles';
+import { AppointmentCard } from '../components';
 
 const PatientScreen = ({ route }) => {
-    const { user } = route.params
+    // const { user } = route.params
+    const user = {
+        fullname: 'lorem',
+        tel: '999999999'
+    }
 
     return (
         <PatientView>
@@ -27,6 +32,7 @@ const PatientScreen = ({ route }) => {
             </Container>
             <PatientAppointments>
                 <PatientAppointmentsText>Приемы</PatientAppointmentsText>
+                <AppointmentCard></AppointmentCard>
             </PatientAppointments>
         </PatientView>
     );
@@ -50,7 +56,7 @@ const Container = styled.View`
 
 const PatientAppointments = styled(Container)`
     background: #F8FAFD;
-    height: 100%;
+    flex: 1;
 `
 
 const CallBtn = styled.TouchableOpacity`
