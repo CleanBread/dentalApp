@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { HomeScreen, PatientScreen } from './screens';
+import { HomeScreen, PatientScreen, AddChangePatientScreen } from './screens';
 
 
 const Stack = createStackNavigator();
@@ -19,7 +19,7 @@ const myTheme = {
 function App() {
   return (
     <NavigationContainer theme={myTheme} >
-      <Stack.Navigator initialRouteName="Patient">
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} options={{
           title: 'Пациенты', headerTintColor: '#2A86FF', headerTitleStyle: {
             fontWeight: 'bold',
@@ -27,6 +27,11 @@ function App() {
         }} />
         <Stack.Screen name="Patient" component={PatientScreen} options={{
           title: 'Карта пациента', headerTintColor: '#2A86FF', headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }} />
+        <Stack.Screen name="AddChangePatient" component={AddChangePatientScreen} options={{
+          headerTintColor: '#2A86FF', headerTitleStyle: {
             fontWeight: 'bold',
           }
         }} />

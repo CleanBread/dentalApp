@@ -1,12 +1,11 @@
 import React from 'react';
 import { View, SectionList, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
-import { Ionicons } from '@expo/vector-icons';
+import axios from 'axios';
 
-import { Group, GroupTitle } from '../components';
+import { Group, GroupTitle, PlusBtn } from '../components';
 
 const HomeScreen = ({ navigation }) => {
-
   const DATA = [
     {
       title: '14 сентября',
@@ -120,22 +119,28 @@ const HomeScreen = ({ navigation }) => {
       ]
     }
   ];
+
+  const [data, setData] = React.useState(DATA)
+
+  React.useEffect(() => {
+    axios.get('https://trycode.pw/c/TCYRN.json').then(({ data }) => {
+      // setData(data.users)
+    })
+  }, [])
+
   return (
     <Container>
-      <GroupList
+      {data && (<GroupList
         contentInset={{ bottom: 100 }}
-        sections={DATA}
+        sections={data}
         keyExtractor={(item, index) => index}
         renderItem={({ item }) => <Group navigation={navigation} patient={item} />}
         renderSectionHeader={({ section: { title } }) => {
           return <GroupTitle title={title}></GroupTitle>
         }}
-      />
-      <TouchableOpacity>
-        <PlusButton>
-          <Ionicons size={32} name="ios-add" color="white" />
-        </PlusButton>
-      </TouchableOpacity>
+      />)
+      }
+      <PlusBtn navigation={navigation} to="AddChangePatient" title={{ title: 'Добавить пациента' }}></PlusBtn>
     </Container>
   );
 }
@@ -161,6 +166,8 @@ const PlusButton = styled.View`
 const Container = styled.View`
   flex: 1;
   background: #ffffff;
+  height: 100%;
+  position: relative;
 `;
 
 export default HomeScreen;
